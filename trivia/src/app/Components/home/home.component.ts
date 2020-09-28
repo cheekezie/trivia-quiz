@@ -9,7 +9,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  questionBank = [];
+  questionBank = questions;
+  questions = [];
   answers = [];
   name = "";
   selectedOptions = [];
@@ -25,7 +26,8 @@ export class HomeComponent implements OnInit {
     minutes:0,
     seconds:0,
     elapsed:true,
-    started:false
+    started:false,
+    distance:300
   }
   notification = false;
   constructor(
@@ -33,30 +35,39 @@ export class HomeComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    await this.randomizeArray();
+    
     await this.trimQuestionData();
   }
 
   //starting new Quiz session
   async reset(){
-    this.notification = false;
-    await this.randomizeArray();
-    await this.trimQuestionData();
+    window.location.reload()
   }
   //Getting random 10 questions
   async randomizeArray(){
-    this.questionBank = [...Array(10)].map( ()=> questions[this.randomNumber()]); 
+    var new_array = [];
+    for (let i = 0; i < 10; i++) {
+      let random = this.questionBank[this.randomNumber()];
+      new_array.push(random);
+    }
+    return new_array
   }
 
   //Getting a unique random number between 1 to the last time of the question array
   randomNumber(){
     let start = 1;
-    let last = questions.length + 1
+    let last = questions.length + 1;
+    let random = Math.floor(Math.random() * (last - start)) + start
+    console.log(random);
+    
     return (Math.floor(Math.random() * (last - start))) + start
   }
   //Adjusting the question data to present the question options as array with unique id
   async trimQuestionData(){
-    this.questionBank.forEach(el=>{
+    this.questions = await this.randomizeArray();
+    console.log(this.questions);
+    
+    this.questions.forEach(el=>{
       el['options'] = [
       {
         id: `${el.id}a`,
@@ -80,6 +91,7 @@ export class HomeComponent implements OnInit {
       },
     ]
     })
+  
   }
   submit(){
     let correctAnswers = this.answers.filter(item=>{
@@ -148,19 +160,17 @@ export class HomeComponent implements OnInit {
   }
   start(){
     this.time.started = true;
-    //seconds equivalent of 5 minutes
-    let distance = 300-1;
     this.time.seconds = 59;
     this.time.minutes = 4;
     // Update the count down every 1 second
     let countDown = setInterval(() =>{
-      distance--;
+      this.time.distance--;
       this.time.seconds--;
       if(this.time.seconds == 0){
         this.time.seconds = 59;
         this.time.minutes--;
       }
-      if(distance < 1){
+      if(this.time.distance < 1 ){
         this.time.elapsed = true;
         this.time.started = false;
         this.time.seconds = 0;
@@ -168,7 +178,9 @@ export class HomeComponent implements OnInit {
         this.submit();
         clearInterval(countDown);
       }
+      
     }, 1000);
+  
   }
 
   //To pop up matdialog box for name collection

@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="questions" *ngIf="time?.started">
-        <div *ngFor="let item of questionBank; let iq = index" class="mb-3">
+        <div *ngFor="let item of questions; let iq = index" class="mb-3">
             <h6 class="f-16 question">{{item?.question}}</h6>
             <div *ngFor="let opt of item?.options; let ia = index">
                 <div class="radiobtn">
