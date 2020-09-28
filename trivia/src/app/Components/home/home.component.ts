@@ -43,30 +43,16 @@ export class HomeComponent implements OnInit {
   async reset(){
     window.location.reload()
   }
-  //Getting random 10 questions
+  
+  //Getting random 10 questions from the question bank
   async randomizeArray(){
-    var new_array = [];
-    for (let i = 0; i < 10; i++) {
-      let random = this.questionBank[this.randomNumber()];
-      new_array.push(random);
-    }
-    return new_array
+    this.questionBank.sort(() => Math.random() - 0.5)
+    return this.questionBank.slice(5,15)
   }
 
-  //Getting a unique random number between 1 to the last time of the question array
-  randomNumber(){
-    let start = 1;
-    let last = questions.length + 1;
-    let random = Math.floor(Math.random() * (last - start)) + start
-    console.log(random);
-    
-    return (Math.floor(Math.random() * (last - start))) + start
-  }
   //Adjusting the question data to present the question options as array with unique id
   async trimQuestionData(){
     this.questions = await this.randomizeArray();
-    console.log(this.questions);
-    
     this.questions.forEach(el=>{
       el['options'] = [
       {
