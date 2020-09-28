@@ -1,0 +1,121 @@
+$primary:#0685E4;
+$secondary:#090316;
+$tertiary: #DF0FF0;
+.logo{
+    width: 5rem;
+    height: auto;
+    border-radius: 7px;
+}
+mat-toolbar{
+    height: auto !important;
+    padding: .5rem 7%;
+}
+.content{
+    padding: 8rem 7% 4rem 7%;
+}
+.intro{
+    padding-top: 10rem;
+    text-align: center;
+    button{
+        border: none;
+        box-shadow: none;
+        border-radius: 5px;
+        padding: .5rem 1.5rem;
+        &:active,&:focus{
+            outline: none;
+        }
+    }
+}
+
+.radiobtn {
+  position: relative;
+  display: block;
+}
+.radiobtn label {
+  display: block;
+  background: #c8bce2;
+  color: #444;
+  border-radius: 5px;
+  padding: 10px 20px;
+  border: 2px solid #090316;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.radiobtn input[type="radio"] {
+  display: none;
+  position: absolute;
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+    appearance: none;
+}
+
+.answer-check{
+    color: #D522BD;
+    position: absolute;
+    right: 0;
+    margin: 3px 14px;
+    font-size: 10px;
+    border-radius: 3px;
+    padding: 5px 4px;
+    background: #D522BD;
+}
+.radiobtn {
+	position: relative;
+	display: block;
+}
+.radiobtn label {
+  display: block;
+  background: #ded4f394;
+  color: #444;
+  border-radius: 5px;
+  padding: 10px 20px;
+  border: 2px solid #c5b7e2e0;
+  margin-bottom: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.checked{
+  border: 2px solid #0c44ac44  !important;
+  background: #0c3c9444 !important;
+  i{
+    color: #fff !important;
+    background: $tertiary !important;
+  }
+}
+
+//NOTIFICTION STYLING
+.overlay_notice{
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.7) !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  .notice_content{
+    padding: 5rem 2rem;
+    background: #fff;
+    width: 35rem;
+    border-radius: 5px;
+    text-align: center;
+    @media (max-width: 576px) {
+        width: 95%;
+    }
+  }
+  .score{
+      font-size: 30px;
+  }
+  mat-icon{
+      width: 45px;
+      font-size: 45px;
+      height: 45px;
+  }
+}
+

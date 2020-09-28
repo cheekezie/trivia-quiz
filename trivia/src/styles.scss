@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster|Nunito+Sans|PT+Sans|Righteous|Roboto+Condensed|Saira+Stencil+One|Tangerine&display=swap');
+html, body { height: 100%; }
+body { margin: 0}
+
+*{
+  a,p,li,span,small, button{
+    font-family: 'PT Sans', sans-serif !important;
+  }
+  h6,h5,.head{
+    font-family: 'Righteous', sans-serif !important;
+  }
+  button:active,.button:focus{
+    outline-width: 0;
+    outline: none;
+  }
+  a,span,p,li,button,label{
+    font-family: 'Frank Ruhl Libre', serif;
+    //font-family: 'Pontano Sans', sans-serif;
+  }
+}
+
+//GLOBAL APP COLOR VARIABLES
+$colorScheme : (
+    primary:#0685E4,
+    secondary:#090316,
+    tertiary: #DF0FF0,
+    text-black: #19191B,
+    text-grey: #505050,
+);
+
+//Funmction to select color from color variables
+@function color($key) {
+    @return map-get($colorScheme, $key);
+}
+//Global background and text color classes
+.bg-app-primary{
+    background: color(primary) !important;
+    color: #fff !important;
+}
+.bg-app-secondary{
+  background: color(secondary) !important;
+  color: #fff;
+}
+.bg-app-tertiary{
+    background: color(tertiary) !important;
+    color: #fff;
+}
+.text-app-primary{
+    color: color(primary) !important;
+}
+.text-app-secondary{
+    color:color(secondary)
+}
+.text-app-tertiary{
+    color:color(tertiary)
+}
+.text-app-grey{
+  color: color(text-grey);
+}
+
+.text-app-black{
+  color: color(text-black);
+}
+
+@keyframes fadeInAnimation { 
+    100% { 
+        opacity: 1; 
+    } 
+    50%{
+        opacity: .5;
+    }
+    0% { 
+        opacity: 0; 
+    } 
+}
+#slide_in{
+    animation: fadeInAnimation ease 3s; 
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+    transition: transform 1.5s ease-in-out;
+}
+.motion_in{
+    transform: translateX(0);
+}
+
+//custom font sizes
+.f-12{
+  font-size: 12px;
+}
+.f-10{
+  font-size: 10px;
+}
+.f-12{
+  font-size: 12px;
+}
+.f-15{
+  font-size: 15px;
+}
+.f-14{
+  font-size: 14px;
+}
+.f-18{
+  font-size: 18px;
+}
+.f-20{
+  font-size: 20px;
+}
+.f-24{
+  font-size: 24px;
+}
+.f-34{
+  font-size: 34px;
+}
+.f-30{
+    font-size: 30px;
+}
+.f-40{
+  font-size: 40px;
+}
+.f-44{
+  font-size: 44px;
+}
+.f-64{
+  font-size: 64px;
+}
+.f-48{
+  font-size: 48px;
+}
+.f-40{
+  font-size: 40px;
+}
+.f-44{
+  font-size: 40px;
+}
+//custom font-weights
+.f-w3{
+  font-weight: normal;
+}
+.f-w300{
+  font-weight: 300;
+}
+.f-w6{
+  font-weight: 600;
+}
+.f-w5{
+  font-weight: 500;
+}
+.f-w4{
+  font-weight: 400;
+}
+.f-wb{
+  font-weight: bold;
+}
+.c_p{
+    cursor: pointer;
+}
+.button{
+    box-shadow: none;
+    border: none;
+}
+
+.tooltip-class{
+  background-color: color(primary) !important;
+}
+.tooltip-tertiary{
+  background-color: color(tertiary) !important;
+}
+.tooltip-red{
+  background-color: color(danger) !important;
+}
+

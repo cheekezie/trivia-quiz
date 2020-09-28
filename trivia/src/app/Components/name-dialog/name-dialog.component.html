@@ -1,0 +1,17 @@
+<h6 class="f-20">
+    Let us Know you
+    <i class="fas fa-times float-right text-danger c_p f-24" (click)="close()"></i>
+</h6>
+<mat-dialog-content class="py-4">
+    <form >
+        <mat-form-field class="col-12 px-0">
+            <mat-label>Your name</mat-label>
+            <input matInput name="name" [(ngModel)]="name"
+            placeholder="Ennter your name here">
+        </mat-form-field>
+        <div class="">
+            <button (click)="submit()" class="bg-app-primary text-white w-100" 
+            mat-raised-button [disabled]="name == ''">Proceed</button>
+        </div>
+    </form>
+</mat-dialog-content>

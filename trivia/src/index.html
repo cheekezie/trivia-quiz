@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Trivia Quiz</title>
+  <meta name="description" content="Test your brain with this simple trivia quiz">
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="./assets/img/quiz-logo-small.png">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- material icon -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <!-- styling for loader to show while app loads -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    .body{
+      padding:0px;
+      margin:0px;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
+    ::selection{
+      background-color:#0685E4;
+      color:#fff;
+    }
+    .body{
+      right: 0;
+      position: fixed;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      top: 0;
+      left: 0;
+      min-height: 100vh;
+      bottom: 0;
+    }
+    .Box{
+      position:relative;
+      text-align: center;
+      width:150px;
+      height:150px;
+      border:3px solid rgba(255,255,255,.2);
+      border-radius:50%;
+      text-align:center;
+      line-height:150px;
+      color:#0685E4;
+      font-size:12px;
+      box-shadow:0px 0px 10px rgba(0,0,0,.2);
+      font-weight:bold;
+    }
+    .Box:before{
+      content:'';
+      position:absolute;
+      top:-3px;
+      left:-3px;
+      width:100%;
+      height:100%;
+      background-color:transparent;
+      border:3px solid transparent;
+      border-top:3px solid #0685E4;
+      border-right:3px solid #0685E4;
+      border-radius:50%;
+      transform:rotate(0deg);
+      animation:SpanLoading 2s linear infinite;
+    }
+    .Box span{
+      position:absolute;
+      top: 50%;
+      left:50%;
+      width:50%;
+      height:3px;
+      background-color:transparent;
+      transform-style:preserve-3d;
+      transform-origin:left;
+      transform:rotate(42deg);
+      animation:Loading 2s linear infinite;
+    }
+    .Box img{
+      width: 5rem;
+      height: 5rem;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .Box span:before{
+      content:'';
+      position:absolute;
+      width:15px;
+      height:15px;
+      border-radius:50%;
+      background-color:#DF0FF0;
+      right:-7px;
+      bottom:-7px;
+      box-shadow:0px 0px 10px #DF0FF0;
+    }
+
+    @keyframes Loading{
+      0%{
+      transform:rotate(42deg);
+      }
+      100%{
+      transform:rotate(402deg);
+      }
+    }
+    @keyframes SpanLoading{
+      0%{
+      transform:rotate(0deg);
+      }
+      100%{
+      transform:rotate(360deg);
+      }
+    }
+  </style>
+
+  <!-- loader to show while app loads -->
+  <div class="body" id="appLoader">
+		<div class="Box">
+      <img src="./favicon.png" alt="">
+			<span></span>
+		</div>
+  </div>
+  <app-root></app-root>
+  <!-- bootstrap, popper and jquery scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
