@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
   async reset(){
     window.location.reload()
   }
-  
+
   //Getting random 10 questions from the question bank
   async randomizeArray(){
     this.questionBank.sort(() => Math.random() - 0.5)
@@ -53,31 +53,6 @@ export class HomeComponent implements OnInit {
   //Adjusting the question data to present the question options as array with unique id
   async trimQuestionData(){
     this.questions = await this.randomizeArray();
-    this.questions.forEach(el=>{
-      el['options'] = [
-      {
-        id: `${el.id}a`,
-        label:'A',
-        option:el.A
-      },
-      {
-        id:`${el.id}b`,
-        label:'B',
-        option:el.B
-      },
-      {
-        id:`${el.id}c`,
-        label:'C',
-        option:el.A
-      },
-      {
-        id:`${el.id}d`,
-        label:'D',
-        option:el.D
-      },
-    ]
-    })
-  
   }
   submit(){
     let correctAnswers = this.answers.filter(item=>{

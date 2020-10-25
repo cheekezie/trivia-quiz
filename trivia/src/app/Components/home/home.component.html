@@ -3,7 +3,7 @@
         <div  class="nav-item">
             <a class="logo-text ml-3 d-flex align-items-center">
                 <img class="logo mr-2" src="../../../assets/img/quiz-logo-small.png" alt="">
-                <h6 class="text-app-secondary">Trivia Quiz</h6>
+                <h6 class="text-app-secondary">Football Quiz</h6>
             </a>
         </div>
         <ul class="nav ml-auto" >
@@ -20,7 +20,7 @@
                 Hello <span class="text-app-tertiary">{{dayTime()}}</span> , 
                 we are glad to have you here !
             </h6>
-            <p>Take out 5 minutes to participate in our incisive quiz exercise</p>
+            <p>Take out 5 minutes to participate in our Football quiz exercise</p>
             <p>Goodluck !</p>
         </div>
         <div class="action text-center">
@@ -51,12 +51,26 @@
         <mat-icon class="text-app-tertiary">info</mat-icon>
         <h6 class="text-app-primary f-w6">Hello {{name}}</h6>
         <p class="f-14 text-black">
-            {{result?.percentage >= 75?'Congratulations':'Unfortunately'}}
+            {{result?.percentage >= 75?'You are a genius !':'Unfortunately'}}
             you scored {{result?.percentage >= 75?'above':'below'}} the pass mark and
             {{result?.percentage >= 75?'passed':'failed'}} the Quiz Exercise
         </p>
-        <p class="f-14 text-black">You attempted {{result?.attempted}} out of 10 possible Questions and scored</p>
-        <p class="text-app-tertiary score mb-3">{{result?.percentage}}%</p>
+        <p class="f-14 text-black">You attempted {{result?.attempted}} out of 10 possible Questions 
+            and got {{result?.correct}} correctly</p>
+        <p class="text-app-tertiary score mb-3">You scored {{result?.percentage}}%</p>
+        <p class="text-app-tertiary 14" *ngIf="result?.percentage < 60 && result?.percentage > 20">
+            This is not the end of the road, picking up from where 
+            you failed and striving for victory is better than jumping from 3rd mainland Bridge
+        </p>
+        <p class="text-app-tertiary" *ngIf="result?.percentage > 75">
+            Treating yourself to sharwama or chicken/chips wont be a bad idea today!
+        </p>
+        <p class="text-app-tertiary 14" *ngIf="result?.percentage < 30">
+            We understand you really did badly in this quiz but remember someone has failed 
+            Nigeria for 5 years now and the citizens still hope it will get better. 
+            You can do better, we are rooting for you !
+        </p>
+        
         <button (click)="reset()" class="bg-app-primary text-white w-100"
         mat-raised-button>Reset Quiz</button>
     </div>
